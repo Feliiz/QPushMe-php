@@ -1,0 +1,32 @@
+{
+    "name": "feliiz/qpushme-php",
+    "description": "sdk for qpush.me",
+    "type": "library",
+    "keywords": [
+        "qpush.me"
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "mockery/mockery": "1.2.3",
+        "phpunit/phpunit": "^7.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Feliiz\\QPushMe\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Feliiz\\QPushMe\\Tests\\": "tests"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "xule",
+            "email": "mangozz@foxmail.com"
+        }
+    ]
+}

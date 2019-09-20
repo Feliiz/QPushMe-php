@@ -1,0 +1,9 @@
+.subsplit
+.php_cs.cache
+.idea
+*.DS_Store
+/vendor
+/coverage
+/index.php
+/config.php
+composer.lock
