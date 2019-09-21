@@ -1,6 +1,6 @@
 {
     "name": "feliiz/qpushme",
-    "description": "sdk for qpush.me",
+    "description": "php-sdk for qpush.me,quick & easy to push notification to iPhone",
     "type": "library",
     "keywords": [
         "qpush.me"
