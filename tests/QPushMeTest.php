@@ -3,7 +3,7 @@
 namespace Feliiz\QPushMe\Tests;
 
 
-class QPushTest
+class QPushMeTest extends TestCase
 {
 
 }
