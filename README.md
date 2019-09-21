@@ -16,7 +16,7 @@ $QPushMe = new \Feliiz\QPushMe\QPushMe($config);
 $QPushMe->text('new message');
 
 //send url to iPhone
-$QPushMe->url('https:\\www.google.com','google');
+$QPushMe->url('https://www.google.com','google');
 ```
 
 ## License
