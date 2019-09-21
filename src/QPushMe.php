@@ -1,15 +1,15 @@
 <?php
 
-namespace Feliiz\QPushMe;
+namespace Feliz\QPushMe;
 
 
-use Feliiz\QPushMe\Exceptions\AuthException;
-use Feliiz\QPushMe\Exceptions\InvalidArgumentException;
+use Feliz\QPushMe\Exceptions\AuthException;
+use Feliz\QPushMe\Exceptions\InvalidArgumentException;
 use GuzzleHttp\Client;
 
 /**
  * Class QPushMe
- * @package Feliiz\QPushMe
+ * @package Feliz\QPushMe
  */
 class QPushMe
 {

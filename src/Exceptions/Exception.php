@@ -1,6 +1,6 @@
 <?php
 
-namespace Feliiz\QPushMe\Exceptions;
+namespace Feliz\QPushMe\Exceptions;
 
 
 /**

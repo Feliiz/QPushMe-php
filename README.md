@@ -10,7 +10,7 @@ $ composer require "feliz/qpushme"
 ## use
 ```php
 $config = ['name'=>'your name','code'=>'your code','timeout'=>5];
-$QPushMe = new \Feliiz\QPushMe\QPushMe($config);
+$QPushMe = new \Feliz\QPushMe\QPushMe($config);
 
 //send text to iPhone
 $QPushMe->text('new message');
