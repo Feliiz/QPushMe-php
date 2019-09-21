@@ -1,10 +1,10 @@
-<h1 align="center">QPushMe-php</h1>
+<h1 align="center">QPushMe</h1>
 
-<p align="center">:calling: php-sdk for qpush.me,queck & easy to push notification to iPhone</p>
+<p align="center">:calling: php-sdk for qpush.me,quick & easy to push notification to iPhone</p>
 
 ## install
 ```shell
-$ composer require "xxxxxx"
+$ composer require "feliz/qpushme"
 ```
 
 ## use
