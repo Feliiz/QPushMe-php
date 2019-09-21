@@ -1,5 +1,5 @@
 {
-    "name": "feliiz/qpushme-php",
+    "name": "feliiz/qpushme",
     "description": "sdk for qpush.me",
     "type": "library",
     "keywords": [
