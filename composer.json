@@ -14,12 +14,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Feliiz\\QPushMe\\": "src"
+            "Feliz\\QPushMe\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Feliiz\\QPushMe\\Tests\\": "tests"
+            "Feliz\\QPushMe\\Tests\\": "tests"
         }
     },
     "license": "MIT",
