@@ -92,7 +92,7 @@ class QPushMe
      * @throws AuthException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    private function send($msg)
+    protected function send($msg)
     {
         $client = new Client($this->getBaseOption());
         $response = $client->request('POST', $this->getPushSiteEndpoint(), [
@@ -112,7 +112,7 @@ class QPushMe
     /**
      * @return array
      */
-    private function getBaseOption()
+    protected function getBaseOption()
     {
         return [
             'base_uri' => $this->getBaseUrl(),
@@ -123,7 +123,7 @@ class QPushMe
     /**
      * @return array
      */
-    private function getHeader()
+    protected function getHeader()
     {
         return [
             'Accept' => 'application/json, text/javascript, */*; q=0.01',
@@ -136,7 +136,7 @@ class QPushMe
     /**
      * @return string
      */
-    private function getBaseUrl()
+    protected function getBaseUrl()
     {
         return $this->baseUrl;
     }
@@ -144,7 +144,7 @@ class QPushMe
     /**
      * @return string
      */
-    private function getPushSiteEndpoint()
+    protected function getPushSiteEndpoint()
     {
         return $this->pushSiteEndpoint;
     }
@@ -152,7 +152,7 @@ class QPushMe
     /**
      * @return mixed
      */
-    private function getName()
+    protected function getName()
     {
         return $this->name;
     }
@@ -161,7 +161,7 @@ class QPushMe
      * @param $name
      * @throws InvalidArgumentException
      */
-    private function setName($name)
+    protected function setName($name)
     {
         if (!is_null($name) && is_scalar($name) && trim($name) != false) {
             $this->name = strval($name);
@@ -175,7 +175,7 @@ class QPushMe
     /**
      * @return int
      */
-    private function getCode()
+    protected function getCode()
     {
         return $this->code;
     }
@@ -185,7 +185,7 @@ class QPushMe
      * @param $code
      * @throws InvalidArgumentException
      */
-    private function setCode($code)
+    protected function setCode($code)
     {
         if (!is_null($code) && is_scalar($code) && intval($code) > 0) {
             $this->code = intval($code);
@@ -198,7 +198,7 @@ class QPushMe
     /**
      * @return int
      */
-    private function getTimeout()
+    protected function getTimeout()
     {
         return $this->timeout;
     }
@@ -207,10 +207,10 @@ class QPushMe
      * @param $timeout
      * @throws InvalidArgumentException
      */
-    private function setTimeout($timeout)
+    protected function setTimeout($timeout)
     {
         if (!is_null($timeout) && is_scalar($timeout)) {
-            $this->timeout = floatval($timeout);
+            $this->timeout = intval($timeout);
         } else {
             throw new InvalidArgumentException('invalid timeout');
         }
