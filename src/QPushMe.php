@@ -6,6 +6,7 @@ namespace Feliz\QPushMe;
 use Feliz\QPushMe\Exceptions\AuthException;
 use Feliz\QPushMe\Exceptions\InvalidArgumentException;
 use GuzzleHttp\Client;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class QPushMe
@@ -13,14 +14,6 @@ use GuzzleHttp\Client;
  */
 class QPushMe
 {
-    /**
-     * @var string
-     */
-    private $baseUrl = 'https://qpush.me';
-    /**
-     * @var string
-     */
-    private $pushSiteEndpoint = '/pusher/push_site/';
     /**
      * @var string
      */
@@ -94,9 +87,8 @@ class QPushMe
      */
     protected function send($msg)
     {
-        $client = new Client($this->getBaseOption());
-        $response = $client->request('POST', $this->getPushSiteEndpoint(), [
-            'headers' => $this->getHeader(),
+        $params =[
+            'headers' => $this->getHeaders(),
             'form_params' => [
                 'name' => $this->getName(),
                 'code' => $this->getCode(),
@@ -104,11 +96,19 @@ class QPushMe
                 'cache' => 'false',
                 'sig' => '',
             ],
-        ]);
-        $contents = $response->getBody()->getContents();
-        return $contents;
+        ];
+       return $this->httpRequest('POST',$this->getPushSiteEndpoint(),$params);
+    }
+    protected function  httpRequest($method,$endpoint,$params=[]){
+        return $this->responseContent($this->getHttpClient($this->getBaseOption())->request($method,$endpoint,$params));
+    }
+    public function  getHttpClient($options = []){
+        return new Client($options);
     }
 
+    protected function responseContent(ResponseInterface $response){
+        return $response->getBody()->getContents();
+    }
     /**
      * @return array
      */
@@ -123,7 +123,7 @@ class QPushMe
     /**
      * @return array
      */
-    protected function getHeader()
+    public function getHeaders()
     {
         return [
             'Accept' => 'application/json, text/javascript, */*; q=0.01',
@@ -136,23 +136,23 @@ class QPushMe
     /**
      * @return string
      */
-    protected function getBaseUrl()
+    public function getBaseUrl()
     {
-        return $this->baseUrl;
+        return 'https://qpush.me';
     }
 
     /**
      * @return string
      */
-    protected function getPushSiteEndpoint()
+    public function getPushSiteEndpoint()
     {
-        return $this->pushSiteEndpoint;
+        return '/pusher/push_site/';
     }
 
     /**
      * @return mixed
      */
-    protected function getName()
+    public function getName()
     {
         return $this->name;
     }
@@ -175,7 +175,7 @@ class QPushMe
     /**
      * @return int
      */
-    protected function getCode()
+    public function getCode()
     {
         return $this->code;
     }
@@ -198,7 +198,7 @@ class QPushMe
     /**
      * @return int
      */
-    protected function getTimeout()
+    public function getTimeout()
     {
         return $this->timeout;
     }
