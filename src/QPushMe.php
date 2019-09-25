@@ -87,7 +87,7 @@ class QPushMe
      */
     protected function send($msg)
     {
-        $params =[
+        $params = [
             'headers' => $this->getHeaders(),
             'form_params' => [
                 'name' => $this->getName(),
@@ -97,18 +97,39 @@ class QPushMe
                 'sig' => '',
             ],
         ];
-       return $this->httpRequest('POST',$this->getPushSiteEndpoint(),$params);
+        return $this->httpRequest('POST', $this->getPushSiteEndpoint(), $params);
     }
-    protected function  httpRequest($method,$endpoint,$params=[]){
-        return $this->responseContent($this->getHttpClient($this->getBaseOption())->request($method,$endpoint,$params));
+
+    /**
+     * @param $method
+     * @param $endpoint
+     * @param array $params
+     * @return string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    protected function httpRequest($method, $endpoint, $params = [])
+    {
+        return $this->responseContent($this->getHttpClient($this->getBaseOption())->request($method, $endpoint, $params));
     }
-    public function  getHttpClient($options = []){
+
+    /**
+     * @param array $options
+     * @return Client
+     */
+    public function getHttpClient($options = [])
+    {
         return new Client($options);
     }
 
-    protected function responseContent(ResponseInterface $response){
+    /**
+     * @param ResponseInterface $response
+     * @return string
+     */
+    protected function responseContent(ResponseInterface $response)
+    {
         return $response->getBody()->getContents();
     }
+
     /**
      * @return array
      */
